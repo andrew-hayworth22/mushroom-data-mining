@@ -4,3 +4,6 @@ PORT = 5001
 .PHONY: server
 server:
 	FLASK_APP=$(FLASK_APP) flask run --port $(PORT) --debug
+
+process:
+	python3 internal/data_processing.py

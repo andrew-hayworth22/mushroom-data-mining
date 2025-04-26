@@ -188,7 +188,7 @@ def preprocessor(dict: dict):
     
     return fun
 
-print("Reading CSV...")
+print("Reading raw dataset...")
 dataset = pd.read_csv('mushrooms_raw.csv')
 
 print("Preprocessing dataset...")
@@ -196,5 +196,8 @@ print("Preprocessing dataset...")
 for column in preprocessor_dicts:
     dataset[column] = dataset[column].apply(preprocessor(preprocessor_dicts[column]))
 
+print("Writing processed dataset...")
 
 dataset.to_csv('mushrooms_processed.csv', encoding='utf-8', index=False)
+
+print("Successfully preprocessed dataset")

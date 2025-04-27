@@ -174,3 +174,5 @@ cython_debug/
 .pypirc
 
 mushrooms_processed.csv
+mushrooms_pruned.csv
+rf.sav

@@ -11,6 +11,10 @@ from sklearn.svm import SVC
 
 print("Reading preprocessed dataset...")
 
+if not os.path.isfile('mushrooms_processed.csv'):
+    print("Preprocessed dataset not found! Run the preprocess command first...")
+    exit(1)
+
 dataset = pd.read_csv("mushrooms_processed.csv")
 
 print("Preparing dataset for model training...")
@@ -20,7 +24,7 @@ target = np.ravel(dataset.loc[:, dataset.columns == 'class'])
 
 target_binary = (target > np.median(target)).astype(int)
 
-features_train, features_test, target_train, target_test = train_test_split(features, target)
+features_train, features_test, target_train, target_test = train_test_split(features, target, test_size=0.2)
 
 scaler = StandardScaler()
 features_train = scaler.fit_transform(features_train)
@@ -45,7 +49,6 @@ rf.fit(features_train, target_train)
 
 print("Evaluating random forest classifier...")
 
-
 target_pred = rf.predict(features_test)
 rf_accuracy = accuracy_score(target_test, target_pred)
 
@@ -65,18 +68,10 @@ print("SVM classifier accuracy: {:.2f}%".format(svm_accuracy * 100))
 
 print("Rendering graphs...")
 
-fig, axes = plt.subplots(nrows=2, ncols=1)
-
-axes[0].bar(
+plt.bar(
     ['Logistic Regression', 'Random Forest Classifier', 'Support Vector Machine'],
     [lr_accuracy, rf_accuracy, svm_accuracy])
-axes[0].set_xlabel('Model Accuracy')
-axes[0].set_title('Accuracy of each ML model')
+plt.xlabel('Model Accuracy')
+plt.title('Accuracy of each ML model')
 
-feature_importances = rf.feature_importances_
-axes[1].barh(features.columns, feature_importances)
-axes[1].set_xlabel('Feature Importance')
-axes[1].set_title('Feature Importance in Random Forest Classifier')
-
-fig.tight_layout()
 plt.show()

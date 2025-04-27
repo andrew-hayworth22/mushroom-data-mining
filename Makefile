@@ -10,3 +10,10 @@ preprocess:
 
 explore:
 	python3 internal/data_exploration.py
+
+prune:
+	python3 internal/data_pruning.py
+
+generate:
+	python3 internal/data_processing.py
+	python3 internal/data_pruning.py

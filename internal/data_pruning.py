@@ -8,7 +8,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-
 print("Reading preprocessed dataset...")
 
 if not os.path.isfile('mushrooms_processed.csv'):
@@ -79,7 +78,7 @@ print("Random forest classifier accuracy after pruning: {:.2f}%".format(rf_accur
 
 print("Writing pruned dataset...")
 
-dataset.to_csv("mushrooms_pruned.csv")
+dataset.to_csv('mushrooms_processed.csv', encoding='utf-8', index=False)
 
 print("Persisting ML model...")
 

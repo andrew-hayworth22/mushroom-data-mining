@@ -1,0 +1,19 @@
+.prediction-form {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 16px;
+}
+
+label {
+    display: block;
+}
+
+select {
+    display: block;
+    width: 100%;
+}
+
+input[type='checkbox'] {
+    margin: 0px;
+}

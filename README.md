@@ -41,3 +41,11 @@ To avoid running the code step-by-step and simply get the binary for our model, 
 ``` make generate ```
 
 This preprocess the dataset, prunes unecessary attributes, and generates the binary for our random forest classifier in one command.
+
+## Running the Server
+
+Now that the model is generated, we can run the server that provides a user-friendly interface that allows user's to predict the edibility of mushrooms. To run the server, use this command:
+
+``` make server ```
+
+This allows you to input physical data of mushrooms and run it against the model that was generated

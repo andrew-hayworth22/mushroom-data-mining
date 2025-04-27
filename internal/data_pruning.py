@@ -47,6 +47,7 @@ feature_importance_threshold = np.float64(0.02)
 plt.barh(features.columns, feature_importances)
 plt.xlabel('Feature Importance')
 plt.title('Feature Importance in Random Forest Classifier')
+plt.show()
 
 for i in range(len(feature_importances)):
     print(f"{features.columns[i]}: {str(feature_importances[i])} {" PRUNED" if feature_importances[i] < feature_importance_threshold else ""}")
@@ -78,12 +79,10 @@ print("Random forest classifier accuracy after pruning: {:.2f}%".format(rf_accur
 
 print("Writing pruned dataset...")
 
-dataset.to_csv('mushrooms_processed.csv', encoding='utf-8', index=False)
+dataset.to_csv('mushrooms_pruned.csv', encoding='utf-8', index=False)
 
 print("Persisting ML model...")
 
 pickle.dump(rf, open('rf.sav', 'wb'))
 
 print("Successfully generated final ML model!")
-
-plt.show()

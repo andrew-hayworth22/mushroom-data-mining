@@ -175,4 +175,4 @@ cython_debug/
 
 mushrooms_processed.csv
 mushrooms_pruned.csv
-rf.sav
+rf.*

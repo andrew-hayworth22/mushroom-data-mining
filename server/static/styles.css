@@ -12,8 +12,21 @@ label {
 select {
     display: block;
     width: 100%;
+    max-width: 200px;
 }
 
 input[type='checkbox'] {
     margin: 0px;
+}
+
+.edible {
+    background-color: darkgreen;
+    color: white;
+    padding: 5px;
+}
+
+.poisonous {
+    background-color: darkred;
+    color: white;
+    padding: 5px;
 }

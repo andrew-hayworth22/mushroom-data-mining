@@ -1,9 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Results</h1>
+    <h1>Result</h1>
     <div>
-        This mushroom is {{ result }}!
+        This mushroom is 
+        {% if result == 1 %}
+            <span class="edible">EDIBLE</span>
+        {% else %}
+            <span class="poisonous">POISONOUS</span>
+        {% endif %}
     </div>
 
     <a href="/"> Try Again</a>

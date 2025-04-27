@@ -55,7 +55,7 @@ def predict():
 
     print(pred)
 
-    result = "EDIBLE" if pred[0] == 1 else "POISONOUS"
+    result = pred[0]
     
     return render_template('result.html', result=result)
 

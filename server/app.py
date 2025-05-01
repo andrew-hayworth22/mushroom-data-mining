@@ -31,7 +31,6 @@ def predict():
         bruises = 0
 
     mushroom_data = [[
-        0,
         bruises,
         request.form.get("odor", type=int),
         request.form.get("gill-spacing", type=int),
